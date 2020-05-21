@@ -2,7 +2,7 @@
     "type": "project",
     "license": "proprietary",
     "require": {
-        "php": "^7.2.5",
+        "php": "^7.3",
         "ext-ctype": "*",
         "ext-iconv": "*",
         "sensio/framework-extra-bundle": "^5.1",
@@ -30,12 +30,24 @@
         "symfony/yaml": "5.0.*"
     },
     "require-dev": {
+        "captainhook/captainhook": "^5.3",
+        "captainhook/plugin-composer": "^5.2",
+        "doctrine/coding-standard": "^7.0",
+        "nunomaduro/phpinsights": "^1.14",
+        "phpstan/phpstan": "^0.12.25",
+        "phpstan/phpstan-phpunit": "^0.12.8",
         "symfony/debug-pack": "*",
         "symfony/maker-bundle": "^1.0",
+        "symfony/phpunit-bridge": "^5.0",
         "symfony/profiler-pack": "*",
-        "symfony/test-pack": "*"
+        "symfony/test-pack": "^1.0",
+        "symplify/easy-coding-standard": "^7.3",
+        "vimeo/psalm": "^3.11"
     },
     "config": {
+        "platform": {
+            "php": "7.3"
+        },
         "preferred-install": {
             "*": "dist"
         },
@@ -70,7 +82,23 @@
         ],
         "post-update-cmd": [
             "@auto-scripts"
-        ]
+        ],
+        "post-autoload-dump": "vendor/bin/captainhook install -f -s",
+        "check-scripts": {
+            "ecs": "./vendor/bin/ecs check",
+            "phpcs": "./vendor/bin/phpcs"
+        },
+        "check": "@check-scripts",
+        "analyse-scripts": {
+            "phpstan": "./vendor/bin/phpstan analyse",
+            "psalm": "./vendor/bin/psalm",
+            "insights": "./vendor/bin/phpinsights"
+        },
+        "analyse": "@analyse-scripts",
+        "test-scripts": {
+            "phpunit": "./bin/phpunit"
+        },
+        "test": "@test-scripts"
     },
     "conflict": {
         "symfony/symfony": "*"

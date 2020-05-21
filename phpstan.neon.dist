@@ -1,0 +1,14 @@
+parameters:
+    paths:
+        - src
+        - tests
+    tmpDir: var/cache/ecs
+    level: 7
+    inferPrivatePropertyTypeFromConstructor: true
+    excludes_analyse:
+        - 'src/Kernel.php'
+        - 'tests/bootstrap.php'
+
+includes:
+    - vendor/phpstan/phpstan-phpunit/extension.neon
+    - vendor/phpstan/phpstan-phpunit/rules.neon
