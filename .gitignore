@@ -202,3 +202,5 @@ composer.lock
 ### dotenv ###
 .env
 .env.test
+
+/lsp
