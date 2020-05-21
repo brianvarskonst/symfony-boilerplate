@@ -33,6 +33,7 @@
     "require-dev": {
         "captainhook/captainhook": "^5.3",
         "captainhook/plugin-composer": "^5.2",
+        "friendsofphp/php-cs-fixer": "^2.16",
         "nunomaduro/phpinsights": "^1.14",
         "phpstan/phpstan": "^0.12.25",
         "phpstan/phpstan-phpunit": "^0.12.8",
@@ -100,7 +101,8 @@
         "test-scripts": {
             "phpunit": "./bin/phpunit"
         },
-        "test": "@test-scripts"
+        "test": "@test-scripts",
+        "fixer": "./vendor/bin/php-cs-fixer"
     },
     "conflict": {
         "symfony/symfony": "*"
