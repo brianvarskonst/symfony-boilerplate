@@ -33,10 +33,10 @@
     "require-dev": {
         "captainhook/captainhook": "^5.3",
         "captainhook/plugin-composer": "^5.2",
-        "doctrine/coding-standard": "^7.0",
         "nunomaduro/phpinsights": "^1.14",
         "phpstan/phpstan": "^0.12.25",
         "phpstan/phpstan-phpunit": "^0.12.8",
+        "slevomat/coding-standard": "^6.3",
         "symfony/debug-pack": "*",
         "symfony/maker-bundle": "^1.0",
         "symfony/phpunit-bridge": "^5.0",
