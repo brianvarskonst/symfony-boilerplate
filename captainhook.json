@@ -17,7 +17,7 @@
         "actions": []
     },
     "pre-commit": {
-        "enabled": true,
+        "enabled": false,
         "actions": [
             {
                 "action": "\\CaptainHook\\App\\Hook\\PHP\\Action\\Linting",
@@ -25,12 +25,12 @@
                 "conditions": []
             },
             {
-                "action": "phpunit",
+                "action": "composer phpunit",
                 "options": [],
                 "conditions": []
             },
             {
-                "action": "phpcs --standard=psr2 src",
+                "action": "composer phpcs --standard=psr2 src",
                 "options": [],
                 "conditions": []
             }
