@@ -49,7 +49,8 @@ return [
     */
 
     'exclude' => [
-        //  'path/to/directory-or-file'
+        'src/Kernel.php',
+        'tests/bootstrap.php',
     ],
 
     'add' => [
