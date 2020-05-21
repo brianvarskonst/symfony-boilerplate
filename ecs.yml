@@ -12,6 +12,9 @@ services:
     # most of these services are taken from symplify.yaml
     # see https://github.com/Symplify/Symplify/blob/master/packages/CodingStandard/config/symplify.yaml
 
+    PhpCsFixer\Fixer\ArrayNotation\ArraySyntaxFixer:
+        syntax: short
+
     # Control Structures
     Symplify\CodingStandard\Fixer\ArrayNotation\StandaloneLineInMultilineArrayFixer: ~
 
