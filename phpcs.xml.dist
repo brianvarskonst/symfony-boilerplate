@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<ruleset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<ruleset name="Custom Symfony Coding Standard"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:noNamespaceSchemaLocation="vendor/squizlabs/php_codesniffer/phpcs.xsd">
+
+    <description>The Symfony Boilerplate coding standard.</description>
 
     <arg name="basepath" value="."/>
     <arg name="cache" value=".phpcs-cache"/>
@@ -11,12 +14,15 @@
     <!-- Ignore warnings, show progress of the run and show sniff names -->
     <arg value="nps"/>
 
-    <rule ref="PSR2"/>
-    <rule ref="Doctrine"/>
-
     <file>src/</file>
     <file>tests/</file>
 
     <exclude-pattern>/src/Kernel.php</exclude-pattern>
     <exclude-pattern>/tests/bootstrap.php</exclude-pattern>
+
+    <rule ref="PSR12" />
+    <rule ref="Generic"/>
+    <rule ref="PSR2" />
+    <rule ref="vendor/slevomat/coding-standard/SlevomatCodingStandard/ruleset.xml" />
+    <rule ref="Squiz"/>
 </ruleset>
