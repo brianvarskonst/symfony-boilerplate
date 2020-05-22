@@ -33,11 +33,10 @@
     "require-dev": {
         "captainhook/captainhook": "^5.3",
         "captainhook/plugin-composer": "^5.2",
-        "friendsofphp/php-cs-fixer": "^2.16",
+        "fzaninotto/faker": "^1.9",
         "nunomaduro/phpinsights": "^1.14",
         "phpstan/phpstan": "^0.12.25",
         "phpstan/phpstan-phpunit": "^0.12.8",
-        "slevomat/coding-standard": "^6.3",
         "symfony/debug-pack": "*",
         "symfony/maker-bundle": "^1.0",
         "symfony/phpunit-bridge": "^5.0",
@@ -88,13 +87,12 @@
         ],
         "post-autoload-dump": "vendor/bin/captainhook install -f -s",
         "check-scripts": {
-            "ecs": "./vendor/bin/ecs check",
-            "phpcs": "./vendor/bin/phpcs"
+            "ecs": "./vendor/bin/ecs check --config easy-coding-standard.yml"
         },
         "check": "@check-scripts",
         "analyse-scripts": {
             "phpstan": "./vendor/bin/phpstan analyse",
-            "psalm": "./vendor/bin/psalm",
+            "psalm": "./vendor/bin/psalm --config=psalm.xml",
             "insights": "./vendor/bin/phpinsights"
         },
         "analyse": "@analyse-scripts",

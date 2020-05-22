@@ -1,7 +1,9 @@
 <?xml version="1.0"?>
 <psalm
-    errorLevel="3"
     resolveFromConfigFile="true"
+    cacheDirectory="var/cache/psalm"
+    ensureArrayStringOffsetsExist="true"
+    findUnusedVariablesAndParams="true"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns="https://getpsalm.org/schema/config"
     xsi:schemaLocation="https://getpsalm.org/schema/config vendor/vimeo/psalm/config.xsd"
@@ -16,44 +18,102 @@
     </projectFiles>
 
     <issueHandlers>
-        <MissingPropertyType errorLevel="suppress" />
-        <PossiblyInvalidMethodCall errorLevel="suppress" />
-        <ArgumentTypeCoercion errorLevel="suppress" />
-        <LessSpecificReturnStatement errorLevel="suppress" />
-        <MoreSpecificReturnType errorLevel="suppress" />
-        <InvalidStringClass errorLevel="suppress" />
-        <MoreSpecificImplementedParamType errorLevel="suppress" />
-        <InvalidNullableReturnType errorLevel="suppress" />
-        <NullableReturnStatement errorLevel="suppress" />
-        <PossiblyInvalidArgument errorLevel="suppress" />
-        <MissingClosureReturnType errorLevel="suppress" />
-        <DeprecatedMethod errorLevel="info" />
-        <MissingParamType errorLevel="info" />
-        <MissingClosureParamType errorLevel="info" />
-        <MissingReturnType errorLevel="info" />
-        <DeprecatedClass errorLevel="info" />
-        <PossiblyNullReference errorLevel="info" />
-        <PossiblyNullArgument errorLevel="info" />
-        <PossiblyNullOperand errorLevel="info" />
-        <UndefinedClass>
-            <errorLevel type="suppress">
-                <directory name="tests"/>
+        <UnusedFunctionCall>
+            <errorLevel type="info">
+                <referencedFunction name="iterator_to_array"/>
             </errorLevel>
-        </UndefinedClass>
-        <PossiblyUndefinedMethod>
-            <errorLevel type="suppress">
-                <directory name="tests"/>
-            </errorLevel>
-        </PossiblyUndefinedMethod>
-        <PropertyNotSetInConstructor>
-            <errorLevel type="suppress">
-                <directory name="tests"/>
-            </errorLevel>
-        </PropertyNotSetInConstructor>
-        <InternalMethod>
-            <errorLevel type="suppress">
-                <directory name="tests"/>
-            </errorLevel>
-        </InternalMethod>
+        </UnusedFunctionCall>
+
+        <LessSpecificImplementedReturnType errorLevel="info"/>
+
+        <!-- level 3 issues - slightly lazy code writing, but provably low false-negatives -->
+
+        <DeprecatedMethod errorLevel="info"/>
+        <DeprecatedProperty errorLevel="info"/>
+        <DeprecatedClass errorLevel="info"/>
+        <DeprecatedConstant errorLevel="info"/>
+        <DeprecatedFunction errorLevel="info"/>
+        <DeprecatedInterface errorLevel="info"/>
+        <DeprecatedTrait errorLevel="info"/>
+
+        <InternalMethod errorLevel="info"/>
+        <InternalProperty errorLevel="info"/>
+        <InternalClass errorLevel="info"/>
+
+        <MissingClosureReturnType errorLevel="info"/>
+        <MissingReturnType errorLevel="info"/>
+        <MissingPropertyType errorLevel="info"/>
+        <InvalidDocblock errorLevel="info"/>
+
+        <PropertyNotSetInConstructor errorLevel="info"/>
+        <MissingConstructor errorLevel="info"/>
+        <MissingClosureParamType errorLevel="info"/>
+        <MissingParamType errorLevel="info"/>
+
+        <RedundantCondition errorLevel="info"/>
+
+        <DocblockTypeContradiction errorLevel="info"/>
+        <RedundantConditionGivenDocblockType errorLevel="info"/>
+
+        <UnresolvableInclude errorLevel="info"/>
+
+        <RawObjectIteration errorLevel="info"/>
+
+        <InvalidStringClass errorLevel="info"/>
+
+        <!-- level 4 issues - points to possible deficiencies in logic, higher false-positives -->
+
+        <MoreSpecificReturnType errorLevel="info"/>
+        <LessSpecificReturnStatement errorLevel="info"/>
+        <TypeCoercion errorLevel="info"/>
+
+        <PossiblyFalseReference errorLevel="info"/>
+        <PossiblyInvalidArrayAccess errorLevel="info"/>
+        <PossiblyInvalidArrayAssignment errorLevel="info"/>
+        <PossiblyInvalidCast errorLevel="info"/>
+        <PossiblyInvalidFunctionCall errorLevel="info"/>
+        <PossiblyInvalidIterator errorLevel="info"/>
+        <PossiblyInvalidMethodCall errorLevel="info"/>
+        <PossiblyNullArrayAccess errorLevel="info"/>
+        <PossiblyNullArrayAssignment errorLevel="info"/>
+        <PossiblyNullArrayOffset errorLevel="info"/>
+        <PossiblyNullIterator errorLevel="info"/>
+        <PossiblyNullPropertyFetch errorLevel="info"/>
+        <PossiblyNullReference errorLevel="info"/>
+        <PossiblyUndefinedVariable errorLevel="info"/>
+        <PossiblyUndefinedArrayOffset errorLevel="info"/>
+        <PossiblyUndefinedMethod errorLevel="info"/>
+
+        <!-- level 5 issues - should be avoided at mosts costs... -->
+
+        <ImplicitToStringCast errorLevel="info"/>
+        <InvalidScalarArgument errorLevel="info"/>
+        <InvalidOperand errorLevel="info"/>
+        <TooManyArguments errorLevel="info"/>
+        <TypeDoesNotContainType errorLevel="info"/>
+        <ImplementedReturnTypeMismatch errorLevel="info"/>
+
+        <!-- level 6 issues - really bad things -->
+
+        <InvalidNullableReturnType errorLevel="info"/>
+        <NullableReturnStatement errorLevel="info"/>
+        <InvalidFalsableReturnType errorLevel="info"/>
+        <FalsableReturnStatement errorLevel="info"/>
+
+        <MoreSpecificImplementedParamType errorLevel="info"/>
+
+        <InvalidReturnStatement errorLevel="info"/>
+        <InvalidReturnType errorLevel="info"/>
+        <UndefinedInterfaceMethod errorLevel="info"/>
+
+        <!-- level 7 issues - even worse -->
+
+        <UndefinedPropertyAssignment errorLevel="info"/>
+        <UndefinedThisPropertyFetch errorLevel="info"/>
+        <UndefinedPropertyFetch errorLevel="info"/>
+
+        <InvalidArgument errorLevel="info"/>
+        <InvalidPropertyAssignmentValue errorLevel="info"/>
+        <InvalidArrayOffset errorLevel="info"/>
     </issueHandlers>
 </psalm>
