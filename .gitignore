@@ -15,8 +15,8 @@
 ###< symfony/phpunit-bridge ###
 
 ###> squizlabs/php_codesniffer ###
-/.phpcs-cache
-/phpcs.xml
+.phpcs-cache
+phpcs.xml
 ###< squizlabs/php_codesniffer ###
 
 ###> friendsofphp/php-cs-fixer ###
@@ -80,9 +80,6 @@ Temporary Items
 # CMake
 cmake-build-*/
 
-# Mongo Explorer plugin
-.idea/**/mongoSettings.xml
-
 # File-based project format
 *.iws
 
@@ -95,38 +92,11 @@ out/
 # JIRA plugin
 atlassian-ide-plugin.xml
 
-# Cursive Clojure plugin
-.idea/replstate.xml
-
 # Crashlytics plugin (for Android Studio and IntelliJ)
 com_crashlytics_export_strings.xml
 crashlytics.properties
 crashlytics-build.properties
 fabric.properties
-
-# Editor-based Rest Client
-.idea/httpRequests
-
-# Android studio 3.1+ serialized cache file
-.idea/caches/build_file_checksums.ser
-
-### PhpStorm Patch ###
-# Comment Reason: https://github.com/joeblau/gitignore.io/issues/186#issuecomment-215987721
-
-# *.iml
-# modules.xml
-# .idea/misc.xml
-# *.ipr
-
-# Sonarlint plugin
-.idea/**/sonarlint/
-
-# SonarQube Plugin
-.idea/**/sonarIssues.xml
-
-# Markdown Navigator plugin
-.idea/**/markdown-navigator.xml
-.idea/**/markdown-navigator/
 
 ### PHPUnit ###
 # Covers PHPUnit
@@ -149,12 +119,7 @@ fabric.properties
 /app/spool/*
 
 # Cache, session files and logs (Symfony3)
-/var/cache/*
-/var/logs/*
-/var/sessions/*
-!var/cache/.gitkeep
-!var/logs/.gitkeep
-!var/sessions/.gitkeep
+/var
 
 # Logs (Symfony4)
 /var/log/*
@@ -162,7 +127,6 @@ fabric.properties
 
 # Parameters
 /app/config/parameters.yml
-/app/config/parameters.ini
 
 # Managed by Composer
 /app/bootstrap.php.cache
@@ -171,26 +135,11 @@ fabric.properties
 !bin/console
 !bin/symfony_requirements
 
-# Assets and user uploads
-/web/bundles/
-/web/uploads/
-
-# PHPUnit
-
-# Build data
-
-# Composer PHAR
-/composer.phar
-
 # Backup entities generated with doctrine:generate:entities command
 **/Entity/*~
 
 # Embedded web-server pid file
 /.web-server-pid
-
-### Symfony Patch ###
-/web/css/
-/web/js/
 
 ### Symfony Cli ###
 symfony.lock
@@ -202,5 +151,3 @@ composer.lock
 ### dotenv ###
 .env
 .env.test
-
-/lsp
